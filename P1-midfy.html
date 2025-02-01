@@ -6,128 +6,189 @@
   <style>
     .page-box {
       width: 600px;
-      height: 500px;
-      margin: 100px auto;
+      height: 700px;
+      margin: 30px auto;
       text-align: center;
-      border: 20px solid #000;
+      border: 10px solid #000;
       position: relative;
-      padding: 20px 20px;
+      padding: 10px 10px;
 
     }
     .page {
       display: none;
-      font-size: 50px;
-      padding: 40px;
+      font-size: 30px;
+      /* padding: 10px; */
     }
+
     .page:first-child {
       display: block;
     }
 
-    /* Displays ================================================ */
-    /* ======================================================== */
-    /* ======================================================== */ 
-    .weight_display {
-      width: 300px;
-      height: 50;
-      background-color: #e3e0e0;
-      font-size: 40px;
-      text-align: center;
-      margin: 50px auto;
-    }
-
-    .address_display {
-      width: 300px;
-      height: 50;
-      background-color: #e3e0e0;
-      font-size: 40px;
-      text-align: center;
-      margin: 50px auto;
-    }
-
-    .zipcode_display {
-      width: 300px;
-      height: 50px;
-      background-color: #e3e0e0;
-      font-size: 40px;
-      text-align: center;
-      margin: 50px auto;
-    }
-    
-    /* Buttons ================================================ */
-    /* ======================================================== */
-    /* ======================================================== */
-    .navigation_button {
-      background-color: #2b5fbfb8;
+    .button {
+      background-color: #2b5fbfb4;
       color: white;
       padding: 10px 15px;
-      font-size: 30px;
-      border-radius: 50px;
+      font-size: 15px;
+      border-radius: 30px;
       position: absolute;
+      transform: translate(-50%, -50%);
+
     }
     
-    .navigation_button:hover {
-      background-color: #2b5fbfd6;
-    }
-    /* General Buttons =================================== */
-    .Next {
-    position: absolute;
-    bottom: 0%;     
-    left: 80%;      
-    transform: translate(-50%, -50%);
-    }
-    .Back {
-    position: absolute;
-    bottom: 0%;     
-    left: 20%;        
-    transform: translate(-50%, -50%);
+    .button:hover {
+      background-color: #2b5fbfec;
     }
 
-    /* Unique Buttons =================================== */
-    .Center {
-    position: absolute;
-    top: 50%;     
-    left: 50%;        
-    transform: translate(-50%, -50%);
+    .next_button {
+      position: absolute;
+      bottom: 0%;     
+      left: 80%;      
+      transform: translate(-50%, -50%);
     }
-    .Center_hi {
-    position: absolute;
-    top: 30%;     
-    left: 50%;        
-    transform: translate(-50%, -50%);
-    }    
-    .Center_lo {
-    /* position: absolute; */
-    top: 70%;     
-    left: 50%;        
-    transform: translate(-50%, -50%);
-    }   
-    .Package {
-    position: absolute;
-    top: 50%;     
-    left: 50%;        
-    transform: translate(-50%, -50%);
-    }    
+    .back_button {
+      position: absolute;
+      bottom: 0%;     
+      left: 20%;        
+      transform: translate(-50%, -50%);
+    }
 
+    .text{
+      font-size: 20px;
+      position: absolute;    
+      left: 50%;        
+      transform: translate(-50%, -50%);
+      width: 300px;
+    }
 
-    /* Ourtside Buttons =================================== */
+    /* Start Page ================================================ */
+    /* ======================================================== */
+    /* ======================================================== */ 
+    .packageMailingKiosk_text {
+      font-size: 50px;
+      top: 30%;     
+    }
+    .pressToStart_button {
+      top: 75%;     
+      left: 50%;        
+      transform: translate(-50%, -50%);
+    }
+    /* Letter or Package ================================================ */
+    /* ======================================================== */
+    /* ======================================================== */ 
+
+    .letterOrPackage_text {
+    top: 10%;     
+    }
+
+    .letter_button {
+    top: 15%;     
+    left: 40%;        
+    }
+    .package_button {
+    top: 15%;     
+    left: 60%;        
+    }
+
+    /* Weight/scale ================================================ */
+    /* ======================================================== */
+    /* ======================================================== */ 
+
+  
+    .weight_text {
+      top: 25%;     
+    }
+    .weight_display {
+      top: 30%;     
+      background-color: #e3e0e0;
+    }
+
     .Outside1 {
-    position: absolute;
-    top: 800px;     
-    left: 20%;        
-    transform: translate(-50%, -50%);
+      position: absolute;
+      top: 800px;     
+      left: 20%;        
+      transform: translate(-50%, -50%);
     } 
+    /* address/zipcode ================================================ */
+    /* ======================================================== */
+    /* ======================================================== */ 
+  
+    .address_text {
+      top: 40%;     
+    }
+    .address_display {
+      top: 45%;     
+      background-color: #e3e0e0;
+    }
+
+    .zipcode_text {
+      top: 55%;     
+    }
+    .zipcode_display {
+      top: 60%;         
+      background-color: #e3e0e0;
+    }
     .Outside2 {
-    position: absolute;
-    top: 800px;     
-    left: 50%;        
-    transform: translate(-50%, -50%);
+      position: absolute;
+      top: 800px;     
+      left: 50%;        
+      transform: translate(-50%, -50%);
     } 
     .Outside3 {
-    position: absolute;
-    top: 800px;     
-    left: 80%;        
-    transform: translate(-50%, -50%);
+      position: absolute;
+      top: 800px;     
+      left: 80%;        
+      transform: translate(-50%, -50%);
     } 
+    /* Delivery ================================================ */
+    /* ======================================================== */
+    /* ======================================================== */ 
+
+    .delivery_text {
+      top: 70%;     
+    }
+
+    .ground_button {
+      top: 75%;     
+      left: 20%;        
+    }
+    .twoDay_button {
+      top: 75%;     
+      left: 50%;        
+    }
+    .overnight_button {
+      top: 75%;     
+      left: 80%;        
+    }
+    /* Confirmation ================================================ */
+    /* ======================================================== */
+    /* ======================================================== */ 
+    .confirm_text {
+      top: 85%;   
+      background-color: #e3e0e0;  
+      display: none;
+    }
+    .confirmYes_button {
+      top: 90%;   
+      left: 60%;  
+      display: none;   
+    }
+    .confirmNo_button {
+      top: 90%;    
+      left: 40%;  
+      display: none;   
+    }
+
+    /* Insert Credit Card ================================================ */
+    /* ======================================================== */
+    /* ======================================================== */ 
+    .insertCreditCard_text {
+      font-size: 50px;
+      top: 30%;     
+    }
+    .insertCreditCard_button {
+      top: 75%;     
+      left: 50%;   
+    }
   </style>
 </head>
 <body>
@@ -135,40 +196,50 @@
 <div class="page-box">
 
     <div class="page">
-        <div>Package Mailing Kiosk</div>
-        <button class="navigation_button Center" onclick="changePage(1)">Press to Start</button>
+        <div class = "text packageMailingKiosk_text" >Package Mailing Kiosk</div>
+        <button class="button pressToStart_button" onclick="changePage(1)">Press to Start</button>
     </div>
     <div class="page">
-        <div>Letter or Package</div>
-        <button class="navigation_button Center_hi" >Letter</button>
-        <button class="navigation_button Center" onclick="changePage(1)">Pacakge</button>
-        <button class="navigation_button Back" onclick="changePage(-1)">Back</button>
+        <div class = "text letterOrPackage_text ">Letter or Package</div>
+        <button class="button letter_button" onclick="toggleLetterPackage('letter')" >Letter</button>
+        <button class="button package_button" onclick="toggleLetterPackage('package')" >Package</button>
+
+        <!--  -->
+        <div class = "text weight_text">Please place package on scale</div>
+        <div class = "text weight_display"  >0 0 . 0 0 lbs</div>
+
+        <!--  -->
+        <div class = "text address_text">Address</div>
+        <div class = "text address_display"  >Enter Address</div>
+        <div class = "text zipcode_text">Zipcode: </div>
+        <div class = "text zipcode_display"  >Enter Zipcode</div>
+
+        <!--  -->
+        <div class = "text delivery_text ">Letter or Package</div>
+        <button class="button ground_button" onclick="toggleDelivery('ground')" >Ground: $4.99</button>
+        <button class="button twoDay_button" onclick="toggleDelivery('twoDay')" >2-day: $8.00</button>
+        <button class="button overnight_button" onclick="toggleDelivery('overnight')" >Overnight: $12.00</button>
+
+        <!--  -->
+        <button class="button next_button" onclick="toggleConfirm()">Next</button>
+        <button class="button back_button" onclick="changePage(-1)">Back</button>
+
+        <!--  -->
+        <div class = "text confirm_text"> Are you sure all the information is correct? </div>
+
+        <button class="button confirmYes_button" onclick="changePage(1)">yes</button>
+        <button class="button confirmNo_button" onclick="toggleConfirm()">no</button>
     </div>
     <div class="page">
-        <div>   Please place package on scale    </div>
-        <div class = "weight_display"  >0 0 . 0 0 lbs</div>
-        <button class="navigation_button Next" onclick="changePage(1)">Next</button>
-        <button class="navigation_button Back" onclick="changePage(-1)">Back</button>
+      <div class = "text insertCreditCard_text" >Insert Credit Card</div>
+      <button class="button insertCreditCard_button" onclick="changePage(1)">Insert Credit Card</button>
+      <button class="button back_button" onclick="changePage(-1)">Back</button>
     </div>
-    <div class="page">
-        <div>   Enter Shpping Information    </div>
-        <div class = "address_display"  >Enter Address</div>
-        <div class = "zipcode_display"  >Enter Zipcode</div>
-        <button class="navigation_button Next" onclick="changePage(1)">Next</button>
-        <button class="navigation_button Back" onclick="changePage(-1)">Back</button>
-    </div>
-    <div class="page">
-      <div>   Select Delivery Option    </div>
-      <div class = "address_display"  >Enter Address</div>
-      <div class = "zipcode_display"  >Enter Zipcode</div>
-      <button class="navigation_button Next" onclick="changePage(1)">Next</button>
-      <button class="navigation_button Back" onclick="changePage(-1)">Back</button>
-  </div>
 
 </div>
-<button class="navigation_button Outside1"onclick="togglePackage()" >Put Package on Scale</button>
-<button class="navigation_button Outside2"onclick="toggleAddress()" >Enter Address</button>
-<button class="navigation_button Outside3"onclick="toggleZip()" >Enter Zipcode</button>
+<button class="button Outside1"onclick="togglePackage()" >Put Package on Scale</button>
+<button class="button Outside2"onclick="toggleAddress()" >Enter Address</button>
+<button class="button Outside3"onclick="toggleZip()" >Enter Zipcode</button>
 <script>
   let curPage = 0;
   const pages = document.querySelectorAll(".page");
@@ -177,6 +248,21 @@
     pages[curPage].style.display = "none";
     curPage = (curPage + n + pages.length) % pages.length;
     pages[curPage].style.display = "block";
+  }
+
+  function toggleLetterPackage(selectedButton) {
+    let letter = document.querySelector(".letter_button");
+    let package = document.querySelector(".package_button");
+
+    letter.style.backgroundColor = "#2b5fbfb4";
+    package.style.backgroundColor = "#2b5fbfb4";
+
+    if (selectedButton === "letter") {
+      letter.style.backgroundColor = "#2b5fbfec";
+    }
+    else{
+      package.style.backgroundColor = "#2b5fbfec";
+    }
   }
 
   function togglePackage() {
@@ -214,6 +300,48 @@
       dsiplay.innerText = "Enter Zipcode"
     }
   }
+
+  function toggleDelivery(selectedButton) {
+    let ground = document.querySelector(".ground_button");
+    let twoDay = document.querySelector(".twoDay_button");
+    let overnight = document.querySelector(".overnight_button");
+
+    ground.style.backgroundColor = "#2b5fbfb4";
+    twoDay.style.backgroundColor = "#2b5fbfb4";
+    overnight.style.backgroundColor = "#2b5fbfb4";
+
+    if (selectedButton === "ground") {
+      ground.style.backgroundColor = "#2b5fbfec";
+    }
+    else if (selectedButton === "twoDay") {
+      twoDay.style.backgroundColor = "#2b5fbfec";
+    }
+    else{
+      overnight.style.backgroundColor = "#2b5fbfec";
+    }
+  }
+
+  function toggleConfirm() {
+    let next_button = document.querySelector(".next_button");
+    let confirm_text = document.querySelector(".confirm_text");
+    let confirmYes_button = document.querySelector(".confirmYes_button");
+    let confirmNo_button = document.querySelector(".confirmNo_button");
+
+    if (confirm_text.style.display === "none" || confirm_text.style.display === "") {
+      next_button.style.display = "none"
+      confirm_text.style.display = "block"
+      confirmYes_button.style.display = "block"
+      confirmNo_button.style.display = "block"
+    }
+    else{
+      next_button.style.display = "block"
+      confirm_text.style.display = "none"
+      confirmYes_button.style.display = "none"
+      confirmNo_button.style.display = "none"
+    }
+
+  }
+
 </script>
 
 </body>
