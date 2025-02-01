@@ -68,6 +68,7 @@
       top: 30%;     
     }
     .pressToStart_button {
+      font-size: 50px;
       top: 75%;     
       left: 50%;        
       transform: translate(-50%, -50%);
@@ -103,10 +104,10 @@
     }
 
     .Outside1 {
-      position: absolute;
-      top: 800px;     
-      left: 20%;        
-      transform: translate(-50%, -50%);
+      top: 30%;    
+      left: 90%; 
+      background-color: #48c392;     
+       
     } 
     /* address/zipcode ================================================ */
     /* ======================================================== */
@@ -119,6 +120,12 @@
       top: 45%;     
       background-color: #e3e0e0;
     }
+    .Outside2 {
+      top: 45%;    
+      left: 90%; 
+      background-color: #48c392;            
+    } 
+
 
     .zipcode_text {
       top: 55%;     
@@ -127,17 +134,10 @@
       top: 60%;         
       background-color: #e3e0e0;
     }
-    .Outside2 {
-      position: absolute;
-      top: 800px;     
-      left: 50%;        
-      transform: translate(-50%, -50%);
-    } 
     .Outside3 {
-      position: absolute;
-      top: 800px;     
-      left: 80%;        
-      transform: translate(-50%, -50%);
+      top: 60%;    
+      left: 90%;   
+      background-color: #48c392;     
     } 
     /* Delivery ================================================ */
     /* ======================================================== */
@@ -187,7 +187,25 @@
     }
     .insertCreditCard_button {
       top: 75%;     
-      left: 50%;   
+      left: 50%;  
+      background-color: #48c392;   
+    }
+    /* Receipt ================================================ */
+    /* ======================================================== */
+    /* ======================================================== */ 
+    .receipt_text {
+      font-size: 50px;
+      top: 30%;     
+    }
+    .receiptYes_button {
+      font-size: 50px;
+      top: 75%;   
+      left: 75%;  
+    }
+    .receiptNo_button {
+      font-size: 50px;
+      top: 75%;    
+      left: 25%;  
     }
   </style>
 </head>
@@ -207,12 +225,19 @@
         <!--  -->
         <div class = "text weight_text">Please place package on scale</div>
         <div class = "text weight_display"  >0 0 . 0 0 lbs</div>
+        <button class="button Outside1"onclick="togglePackage()" >Put Package on Scale</button>
+
 
         <!--  -->
         <div class = "text address_text">Address</div>
         <div class = "text address_display"  >Enter Address</div>
+        <button class="button Outside2"onclick="toggleAddress()" >Enter Address</button>
+
+
         <div class = "text zipcode_text">Zipcode: </div>
         <div class = "text zipcode_display"  >Enter Zipcode</div>
+        <button class="button Outside3"onclick="toggleZip()" >Enter Zipcode</button>
+
 
         <!--  -->
         <div class = "text delivery_text ">Letter or Package</div>
@@ -236,10 +261,14 @@
       <button class="button back_button" onclick="changePage(-1)">Back</button>
     </div>
 
+    <div class="page">
+      <div class = "text receipt_text"> Would you like a receipt? </div>
+
+      <button class="button receiptYes_button" onclick="changePage(1)">yes</button>
+      <button class="button receiptNo_button" onclick="changePage(1)">no</button>
+    </div>
+
 </div>
-<button class="button Outside1"onclick="togglePackage()" >Put Package on Scale</button>
-<button class="button Outside2"onclick="toggleAddress()" >Enter Address</button>
-<button class="button Outside3"onclick="toggleZip()" >Enter Zipcode</button>
 <script>
   let curPage = 0;
   const pages = document.querySelectorAll(".page");
@@ -251,73 +280,95 @@
   }
 
   function toggleLetterPackage(selectedButton) {
-    let letter = document.querySelector(".letter_button");
-    let package = document.querySelector(".package_button");
+    let confirm_text = document.querySelector(".confirm_text");
 
-    letter.style.backgroundColor = "#2b5fbfb4";
-    package.style.backgroundColor = "#2b5fbfb4";
+    if (confirm_text.style.display === "none" || confirm_text.style.display === "") {
+      let letter = document.querySelector(".letter_button");
+      let package = document.querySelector(".package_button");
 
-    if (selectedButton === "letter") {
-      letter.style.backgroundColor = "#2b5fbfec";
-    }
-    else{
-      package.style.backgroundColor = "#2b5fbfec";
+      letter.style.backgroundColor = "#2b5fbfb4";
+      package.style.backgroundColor = "#2b5fbfb4";
+
+      if (selectedButton === "letter") {
+        letter.style.backgroundColor = "#2b5fbfec";
+      }
+      else{
+        package.style.backgroundColor = "#2b5fbfec";
+      }
     }
   }
 
   function togglePackage() {
-    let button = document.querySelector(".Outside1");
-    let dsiplay = document.querySelector(".weight_display");
-    if (button.innerText === "Put Package on Scale") {
-      button.innerText = "Take Package off Scale";
-      dsiplay.innerText = "0 3 . 0 0 lbs"
-    } else {
-      button.innerText = "Put Package on Scale";
-      dsiplay.innerText = "0 0 . 0 0 lbs"
+    let confirm_text = document.querySelector(".confirm_text");
+
+    if (confirm_text.style.display === "none" || confirm_text.style.display === "") {
+      let button = document.querySelector(".Outside1");
+      let dsiplay = document.querySelector(".weight_display");
+      if (button.innerText === "Put Package on Scale") {
+        button.innerText = "Take Package off Scale";
+        dsiplay.innerText = "0 3 . 0 0 lbs"
+      } else {
+        button.innerText = "Put Package on Scale";
+        dsiplay.innerText = "0 0 . 0 0 lbs"
+      }
     }
   }
 
   function toggleAddress() {
-    let button = document.querySelector(".Outside2");
-    let dsiplay = document.querySelector(".address_display");
-    if (button.innerText === "Enter Address") {
-      button.innerText = "Delete Address";
-      dsiplay.innerText = "100 main street"
-    } else {
-      button.innerText = "Enter Address";
-      dsiplay.innerText = "Enter Address"
+    let confirm_text = document.querySelector(".confirm_text");
+
+    if (confirm_text.style.display === "none" || confirm_text.style.display === "") {
+      let button = document.querySelector(".Outside2");
+      let dsiplay = document.querySelector(".address_display");
+      if (button.innerText === "Enter Address") {
+        button.innerText = "Delete Address";
+        dsiplay.innerText = "100 main street"
+      } else {
+        button.innerText = "Enter Address";
+        dsiplay.innerText = "Enter Address"
+      }
     }
   }
 
   function toggleZip() {
-    let button = document.querySelector(".Outside3");
-    let dsiplay = document.querySelector(".zipcode_display");
-    if (button.innerText === "Enter Zipcode") {
-      button.innerText = "Delete Zipcode";
-      dsiplay.innerText = "15213"
-    } else {
-      button.innerText = "Enter Zipcode";
-      dsiplay.innerText = "Enter Zipcode"
+    let confirm_text = document.querySelector(".confirm_text");
+
+    if (confirm_text.style.display === "none" || confirm_text.style.display === "") {
+      let button = document.querySelector(".Outside3");
+      let dsiplay = document.querySelector(".zipcode_display");
+      if (button.innerText === "Enter Zipcode") {
+        button.innerText = "Delete Zipcode";
+        dsiplay.innerText = "15213"
+      } else {
+        button.innerText = "Enter Zipcode";
+        dsiplay.innerText = "Enter Zipcode"
+      }
+
     }
+
   }
 
   function toggleDelivery(selectedButton) {
-    let ground = document.querySelector(".ground_button");
-    let twoDay = document.querySelector(".twoDay_button");
-    let overnight = document.querySelector(".overnight_button");
+    let confirm_text = document.querySelector(".confirm_text");
 
-    ground.style.backgroundColor = "#2b5fbfb4";
-    twoDay.style.backgroundColor = "#2b5fbfb4";
-    overnight.style.backgroundColor = "#2b5fbfb4";
+    if (confirm_text.style.display === "none" || confirm_text.style.display === "") {
+      let ground = document.querySelector(".ground_button");
+      let twoDay = document.querySelector(".twoDay_button");
+      let overnight = document.querySelector(".overnight_button");
 
-    if (selectedButton === "ground") {
-      ground.style.backgroundColor = "#2b5fbfec";
-    }
-    else if (selectedButton === "twoDay") {
-      twoDay.style.backgroundColor = "#2b5fbfec";
-    }
-    else{
-      overnight.style.backgroundColor = "#2b5fbfec";
+      ground.style.backgroundColor = "#2b5fbfb4";
+      twoDay.style.backgroundColor = "#2b5fbfb4";
+      overnight.style.backgroundColor = "#2b5fbfb4";
+
+      if (selectedButton === "ground") {
+        ground.style.backgroundColor = "#2b5fbfec";
+      }
+      else if (selectedButton === "twoDay") {
+        twoDay.style.backgroundColor = "#2b5fbfec";
+      }
+      else{
+        overnight.style.backgroundColor = "#2b5fbfec";
+      }
     }
   }
 
