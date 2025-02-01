@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>P1-Midfy</title>
+  <style>
+    .page-box {
+      width: 600px;
+      height: 500px;
+      margin: 100px auto;
+      text-align: center;
+      border: 20px solid #000;
+      position: relative;
+      padding: 20px 20px;
+
+    }
+    .page {
+      display: none;
+      font-size: 50px;
+      padding: 40px;
+    }
+    .page:first-child {
+      display: block;
+    }
+
+    /* Displays ================================================ */
+    /* ======================================================== */
+    /* ======================================================== */ 
+    .weight_display {
+      width: 300px;
+      height: 50;
+      background-color: #e3e0e0;
+      font-size: 40px;
+      text-align: center;
+      margin: 50px auto;
+    }
+
+    .address_display {
+      width: 300px;
+      height: 50;
+      background-color: #e3e0e0;
+      font-size: 40px;
+      text-align: center;
+      margin: 50px auto;
+    }
+
+    .zipcode_display {
+      width: 300px;
+      height: 50px;
+      background-color: #e3e0e0;
+      font-size: 40px;
+      text-align: center;
+      margin: 50px auto;
+    }
+
+
+    
+    /* Buttons ================================================ */
+    /* ======================================================== */
+    /* ======================================================== */
+    .navigation_button {
+      background-color: #2b5fbfb8;
+      color: white;
+      padding: 10px 15px;
+      font-size: 30px;
+      border-radius: 50px;
+      position: absolute;
+    }
+    
+    .navigation_button:hover {
+      background-color: #2b5fbfd6;
+    }
+    /* General Buttons =================================== */
+    .Next {
+    position: absolute;
+    bottom: 0%;     
+    left: 80%;      
+    transform: translate(-50%, -50%);
+    }
+    .Back {
+    position: absolute;
+    bottom: 0%;     
+    left: 20%;        
+    transform: translate(-50%, -50%);
+    }
+
+    /* Unique Buttons =================================== */
+    .Center {
+    position: absolute;
+    top: 50%;     
+    left: 50%;        
+    transform: translate(-50%, -50%);
+    }
+    .Center_hi {
+    position: absolute;
+    top: 30%;     
+    left: 50%;        
+    transform: translate(-50%, -50%);
+    }    
+    .Center_lo {
+    /* position: absolute; */
+    top: 70%;     
+    left: 50%;        
+    transform: translate(-50%, -50%);
+    }   
+    .Package {
+    position: absolute;
+    top: 50%;     
+    left: 50%;        
+    transform: translate(-50%, -50%);
+    }    
+
+
+
+    .Outside1 {
+    position: absolute;
+    top: 800px;     
+    left: 50%;        
+    transform: translate(-50%, -50%);
+    } 
+    .Outside2 {
+    position: absolute;
+    top: 900px;     
+    left: 50%;        
+    transform: translate(-50%, -50%);
+    } 
+    .Outside3 {
+    position: absolute;
+    top: 1000px;     
+    left: 50%;        
+    transform: translate(-50%, -50%);
+    } 
+  </style>
+</head>
+<body>
+
+<div class="page-box">
+
+    <div class="page">
+        <div>Package Mailing Kiosk</div>
+        <button class="navigation_button Center" onclick="changePage(1)">Press to Start</button>
+    </div>
+    <div class="page">
+        <div>Letter or Package</div>
+        <button class="navigation_button Center_hi" >Letter</button>
+        <button class="navigation_button Center" onclick="changePage(1)">Pacakge</button>
+        <button class="navigation_button Back" onclick="changePage(-1)">Back</button>
+    </div>
+    <div class="page">
+        <div>   Please place package on scale    </div>
+        <div class = "weight_display"  >0 0 . 0 0 lbs</div>
+        <button class="navigation_button Next" onclick="changePage(1)">Next</button>
+        <button class="navigation_button Back" onclick="changePage(-1)">Back</button>
+    </div>
+    <div class="page">
+        <div>   Enter Shipping Information    </div>
+        <div class = "address_display"  >[address here]</div>
+        <div class = "zipcode_display"  >[zip code here]</div>
+        <button class="navigation_button Next" onclick="changePage(1)">Next</button>
+        <button class="navigation_button Back" onclick="changePage(-1)">Back</button>
+    </div>
+    <div class="page">
+        <div>   Please place package on scale    </div>
+        <div class = "weight_display"  >0 0 . 0 0 lbs</div>
+        <button class="navigation_button Next" onclick="changePage(1)">Next</button>
+        <button class="navigation_button Back" onclick="changePage(-1)">Back</button>
+    </div>
+
+</div>
+<button class="navigation_button Outside1"onclick="togglePackage()" >Put Package on Scale</button>
+<button class="navigation_button Outside2"onclick="togglePackage()" >Put Package on Scale</button>
+<button class="navigation_button Outside3"onclick="togglePackage()" >Put Package on Scale</button>
+<script>
+  let curPage = 0;
+  const pages = document.querySelectorAll(".page");
+
+  function changePage(n) {
+    pages[curPage].style.display = "none";
+    curPage = (curPage + n + pages.length) % pages.length;
+    pages[curPage].style.display = "block";
+  }
+
+  function togglePackage() {
+    let button = document.querySelector(".Outside1");
+    let weight = document.querySelector(".weight_display");
+    if (button.innerText === "Put Package on Scale") {
+      button.innerText = "Take Package off Scale";
+      weight.innerText = "0 3 . 0 0 lbs"
+    } else {
+      button.innerText = "Put Package on Scale";
+      weight.innerText = "0 0 . 0 0 lbs"
+    }
+  }
+
+  function toggleAddress() {
+    let button = document.querySelector(".Outside2");
+    let weight = document.querySelector(".address_display");
+    if (button.innerText === "Put Package on Scale") {
+      button.innerText = "Take Package off Scale";
+      weight.innerText = "0 3 . 0 0 lbs"
+    } else {
+      button.innerText = "Put Package on Scale";
+      weight.innerText = "0 0 . 0 0 lbs"
+    }
+  }
+
+  function togglePackage() {
+    let button = document.querySelector(".Outside3");
+    let weight = document.querySelector(".zipcode_display");
+    if (button.innerText === "Put Package on Scale") {
+      button.innerText = "Take Package off Scale";
+      weight.innerText = "0 3 . 0 0 lbs"
+    } else {
+      button.innerText = "Put Package on Scale";
+      weight.innerText = "0 0 . 0 0 lbs"
+    }
+  }
+</script>
+
+</body>
+</html>
