@@ -52,8 +52,6 @@
       text-align: center;
       margin: 50px auto;
     }
-
-
     
     /* Buttons ================================================ */
     /* ======================================================== */
@@ -111,23 +109,23 @@
     }    
 
 
-
+    /* Ourtside Buttons =================================== */
     .Outside1 {
+    position: absolute;
+    top: 800px;     
+    left: 20%;        
+    transform: translate(-50%, -50%);
+    } 
+    .Outside2 {
     position: absolute;
     top: 800px;     
     left: 50%;        
     transform: translate(-50%, -50%);
     } 
-    .Outside2 {
-    position: absolute;
-    top: 900px;     
-    left: 50%;        
-    transform: translate(-50%, -50%);
-    } 
     .Outside3 {
     position: absolute;
-    top: 1000px;     
-    left: 50%;        
+    top: 800px;     
+    left: 80%;        
     transform: translate(-50%, -50%);
     } 
   </style>
@@ -153,23 +151,24 @@
         <button class="navigation_button Back" onclick="changePage(-1)">Back</button>
     </div>
     <div class="page">
-        <div>   Enter Shipping Information    </div>
-        <div class = "address_display"  >[address here]</div>
-        <div class = "zipcode_display"  >[zip code here]</div>
+        <div>   Enter Shpping Information    </div>
+        <div class = "address_display"  >Enter Address</div>
+        <div class = "zipcode_display"  >Enter Zipcode</div>
         <button class="navigation_button Next" onclick="changePage(1)">Next</button>
         <button class="navigation_button Back" onclick="changePage(-1)">Back</button>
     </div>
     <div class="page">
-        <div>   Please place package on scale    </div>
-        <div class = "weight_display"  >0 0 . 0 0 lbs</div>
-        <button class="navigation_button Next" onclick="changePage(1)">Next</button>
-        <button class="navigation_button Back" onclick="changePage(-1)">Back</button>
-    </div>
+      <div>   Select Delivery Option    </div>
+      <div class = "address_display"  >Enter Address</div>
+      <div class = "zipcode_display"  >Enter Zipcode</div>
+      <button class="navigation_button Next" onclick="changePage(1)">Next</button>
+      <button class="navigation_button Back" onclick="changePage(-1)">Back</button>
+  </div>
 
 </div>
 <button class="navigation_button Outside1"onclick="togglePackage()" >Put Package on Scale</button>
-<button class="navigation_button Outside2"onclick="togglePackage()" >Put Package on Scale</button>
-<button class="navigation_button Outside3"onclick="togglePackage()" >Put Package on Scale</button>
+<button class="navigation_button Outside2"onclick="toggleAddress()" >Enter Address</button>
+<button class="navigation_button Outside3"onclick="toggleZip()" >Enter Zipcode</button>
 <script>
   let curPage = 0;
   const pages = document.querySelectorAll(".page");
@@ -182,37 +181,37 @@
 
   function togglePackage() {
     let button = document.querySelector(".Outside1");
-    let weight = document.querySelector(".weight_display");
+    let dsiplay = document.querySelector(".weight_display");
     if (button.innerText === "Put Package on Scale") {
       button.innerText = "Take Package off Scale";
-      weight.innerText = "0 3 . 0 0 lbs"
+      dsiplay.innerText = "0 3 . 0 0 lbs"
     } else {
       button.innerText = "Put Package on Scale";
-      weight.innerText = "0 0 . 0 0 lbs"
+      dsiplay.innerText = "0 0 . 0 0 lbs"
     }
   }
 
   function toggleAddress() {
     let button = document.querySelector(".Outside2");
-    let weight = document.querySelector(".address_display");
-    if (button.innerText === "Put Package on Scale") {
-      button.innerText = "Take Package off Scale";
-      weight.innerText = "0 3 . 0 0 lbs"
+    let dsiplay = document.querySelector(".address_display");
+    if (button.innerText === "Enter Address") {
+      button.innerText = "Delete Address";
+      dsiplay.innerText = "100 main street"
     } else {
-      button.innerText = "Put Package on Scale";
-      weight.innerText = "0 0 . 0 0 lbs"
+      button.innerText = "Enter Address";
+      dsiplay.innerText = "Enter Address"
     }
   }
 
-  function togglePackage() {
+  function toggleZip() {
     let button = document.querySelector(".Outside3");
-    let weight = document.querySelector(".zipcode_display");
-    if (button.innerText === "Put Package on Scale") {
-      button.innerText = "Take Package off Scale";
-      weight.innerText = "0 3 . 0 0 lbs"
+    let dsiplay = document.querySelector(".zipcode_display");
+    if (button.innerText === "Enter Zipcode") {
+      button.innerText = "Delete Zipcode";
+      dsiplay.innerText = "15213"
     } else {
-      button.innerText = "Put Package on Scale";
-      weight.innerText = "0 0 . 0 0 lbs"
+      button.innerText = "Enter Zipcode";
+      dsiplay.innerText = "Enter Zipcode"
     }
   }
 </script>
