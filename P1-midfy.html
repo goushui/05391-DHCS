@@ -104,13 +104,13 @@
     }
     .weight_display {
       top: 30%;     
-      background-color: #e3e0e0;
+      background-color: #d7d4d4;
     }
 
     .Outside1 {
       top: 30%;    
       left: 90%; 
-      background-color: #48c392;     
+      background-color: #48c3bd;     
        
     } 
     /* address/zipcode ================================================ */
@@ -122,13 +122,13 @@
     }
     .address_display {
       top: 45%;     
-      background-color: #e3e0e0;
+      background-color: #d7d4d4;
     }
-    .Outside2 {
+    /* .Outside2 {
       top: 45%;    
       left: 90%; 
       background-color: #48c392;            
-    } 
+    }  */
 
 
     .zipcode_text {
@@ -136,13 +136,13 @@
     }
     .zipcode_display {
       top: 60%;         
-      background-color: #e3e0e0;
+      background-color: #d7d4d4;
     }
-    .Outside3 {
+    /* .Outside3 {
       top: 60%;    
       left: 90%;   
       background-color: #48c392;     
-    } 
+    }  */
     /* Delivery ================================================ */
     /* ======================================================== */
     /* ======================================================== */ 
@@ -168,16 +168,16 @@
     /* ======================================================== */ 
     .confirm_text {
       top: 85%;   
-      background-color: #e3e0e0;  
+      background-color: #d7d4d4;  
       display: none;
     }
     .confirmYes_button {
-      top: 90%;   
+      top: 93%;   
       left: 60%;  
       display: none;   
     }
     .confirmNo_button {
-      top: 90%;    
+      top: 93%;    
       left: 40%;  
       display: none;   
     }
@@ -192,7 +192,7 @@
     .insertCreditCard_button {
       top: 75%;     
       left: 50%;  
-      background-color: #48c392;   
+      background-color: #2b5fbfb4;   
     }
     /* Receipt ================================================ */
     /* ======================================================== */
@@ -235,13 +235,15 @@
 
         <!--  -->
         <div class = "text address_text">Address</div>
-        <div class = "text address_display"  >Enter Address</div>
-        <button class="button Outside2"onclick="toggleAddress()" >Enter Address</button>
+        <!-- <div class = "text address_display"  >Enter Address</div> -->
+        <input type="text" class="text address_display" placeholder="Enter Address">
+        <!-- <button class="button Outside2"onclick="toggleAddress()" >Enter Address</button> -->
 
 
         <div class = "text zipcode_text">Zipcode: </div>
-        <div class = "text zipcode_display"  >Enter Zipcode</div>
-        <button class="button Outside3"onclick="toggleZip()" >Enter Zipcode</button>
+        <!-- <div class = "text zipcode_display"  >Enter Zipcode</div> -->
+        <input type="text" class="text zipcode_display" placeholder="Enter Zipcode">
+        <!-- <button class="button Outside3"onclick="toggleZip()" >Enter Zipcode</button> -->
 
 
         <!--  -->
@@ -320,39 +322,39 @@
     }
   }
 
-  function toggleAddress() {
-    let confirm_text = document.querySelector(".confirm_text");
+  // function toggleAddress() {
+  //   let confirm_text = document.querySelector(".confirm_text");
 
-    if (confirm_text.style.display === "none" || confirm_text.style.display === "") {
-      let button = document.querySelector(".Outside2");
-      let dsiplay = document.querySelector(".address_display");
-      if (button.innerText === "Enter Address") {
-        button.innerText = "Delete Address";
-        dsiplay.innerText = "100 main street"
-      } else {
-        button.innerText = "Enter Address";
-        dsiplay.innerText = "Enter Address"
-      }
-    }
-  }
+  //   if (confirm_text.style.display === "none" || confirm_text.style.display === "") {
+  //     let button = document.querySelector(".Outside2");
+  //     let dsiplay = document.querySelector(".address_display");
+  //     if (button.innerText === "Enter Address") {
+  //       button.innerText = "Delete Address";
+  //       dsiplay.innerText = "100 main street"
+  //     } else {
+  //       button.innerText = "Enter Address";
+  //       dsiplay.innerText = "Enter Address"
+  //     }
+  //   }
+  // }
 
-  function toggleZip() {
-    let confirm_text = document.querySelector(".confirm_text");
+  // function toggleZip() {
+  //   let confirm_text = document.querySelector(".confirm_text");
 
-    if (confirm_text.style.display === "none" || confirm_text.style.display === "") {
-      let button = document.querySelector(".Outside3");
-      let dsiplay = document.querySelector(".zipcode_display");
-      if (button.innerText === "Enter Zipcode") {
-        button.innerText = "Delete Zipcode";
-        dsiplay.innerText = "15213"
-      } else {
-        button.innerText = "Enter Zipcode";
-        dsiplay.innerText = "Enter Zipcode"
-      }
+  //   if (confirm_text.style.display === "none" || confirm_text.style.display === "") {
+  //     let button = document.querySelector(".Outside3");
+  //     let dsiplay = document.querySelector(".zipcode_display");
+  //     if (button.innerText === "Enter Zipcode") {
+  //       button.innerText = "Delete Zipcode";
+  //       dsiplay.innerText = "15213"
+  //     } else {
+  //       button.innerText = "Enter Zipcode";
+  //       dsiplay.innerText = "Enter Zipcode"
+  //     }
 
-    }
+  //   }
 
-  }
+  // }
 
   function toggleDelivery(selectedButton) {
     let confirm_text = document.querySelector(".confirm_text");
@@ -380,21 +382,35 @@
 
   function toggleConfirm() {
     let next_button = document.querySelector(".next_button");
+    let back_button = document.querySelector(".back_button");
     let confirm_text = document.querySelector(".confirm_text");
     let confirmYes_button = document.querySelector(".confirmYes_button");
     let confirmNo_button = document.querySelector(".confirmNo_button");
 
+    let address_display = document.querySelector(".address_display");
+    let zipcode_display = document.querySelector(".zipcode_display");
+
     if (confirm_text.style.display === "none" || confirm_text.style.display === "") {
       next_button.style.display = "none"
+      back_button.style.display = "none"
+
       confirm_text.style.display = "block"
       confirmYes_button.style.display = "block"
       confirmNo_button.style.display = "block"
+
+      address_display.disabled = true;
+      zipcode_display.disabled = true;
     }
     else{
       next_button.style.display = "block"
+      back_button.style.display = "block"
+
       confirm_text.style.display = "none"
       confirmYes_button.style.display = "none"
       confirmNo_button.style.display = "none"
+
+      address_display.disabled = false;
+      zipcode_display.disabled = false;
     }
 
   }
